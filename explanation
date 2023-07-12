@@ -1,0 +1,49 @@
+
+import math
+This line imports the math module, which provides various mathematical operations and functions.
+
+
+x = 0
+y = 0
+These two lines initialize the starting position of the robot at coordinates (0, 0).
+
+
+movements = []
+This line initializes an empty list called movements to store the movements provided by the user.
+
+
+while True:
+    movement = input("Enter movement (direction steps), or 'done' to finish: ")
+    if movement == "done":
+        break
+    direction, steps = movement.split()
+    movements.append((direction, int(steps)))
+This block of code starts an indefinite loop that continues until the user enters "done" as the movement. 
+Within the loop, the user is prompted to enter a movement in the format "direction steps". The input is split into the direction 
+and steps variables, and they are added as a tuple to the movements list. The loop continues until the user inputs "done".
+
+
+for direction, steps in movements:
+    if direction == "UP":
+        y += steps
+    elif direction == "DOWN":
+        y -= steps
+    elif direction == "LEFT":
+        x -= steps
+    elif direction == "RIGHT":
+        x += steps
+This loop iterates over each movement stored in the movements list. For each movement, 
+it updates the position (x and y) based on the direction and steps provided. If the direction is "UP", 
+the y coordinate is incremented by the given number of steps. If the direction is "DOWN", y is decremented. 
+If the direction is "LEFT", x is decremented. If the direction is "RIGHT", x is incremented.
+
+
+distance = math.sqrt(x**2 + y**2)
+This line calculates the Euclidean distance from the current position to the original point (0, 0) using the formula sqrt(x^2 + y^2),
+where x and y represent the final position.
+
+
+
+print(round(distance))
+Finally, this line prints the rounded nearest integer value of the calculated distance. 
+It uses the round() function to round the floating-point distance to the nearest integer.
