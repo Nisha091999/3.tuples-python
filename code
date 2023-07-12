@@ -1,0 +1,32 @@
+import math
+
+# Initialize the starting position
+x = 0
+y = 0
+
+# Get the movements from the user
+movements = []
+while True:
+    movement = input("Enter movement (direction steps), or 'done' to finish: ")
+    if not movement:
+        break
+    direction, steps = movement.split()
+    movements.append((direction, int(steps)))
+
+# Process each movement
+for direction, steps in movements:
+    # Update the position based on the movement direction
+    if direction == "UP" or "up":
+        y += steps
+    elif direction == "DOWN" or "down":
+        y -= steps
+    elif direction == "LEFT" or "left":
+        x -= steps
+    elif direction == "RIGHT" or "right":
+        x += steps
+
+# Calculate the distance from the current position to the original point
+distance = math.sqrt(x**2 + y**2)
+
+# Print the nearest integer distance
+print(round(distance))
