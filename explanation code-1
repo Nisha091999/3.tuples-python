@@ -1,0 +1,51 @@
+
+class DistanceCalculator:
+This line defines a new class called DistanceCalculator that will encapsulate the functionality of the code.
+
+
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+The __init__ method is a special method that serves as the constructor for the class. 
+It initializes the x and y coordinates to 0 when a new instance of DistanceCalculator is created.
+
+
+    def calculate_distance(self):
+        c = (self.x ** 2 + self.y ** 2) ** 0.5
+        return int(c)
+The calculate_distance method calculates the distance using the Pythagorean theorem: c = sqrt(x**2 + y**2). It returns the distance as an integer.
+
+
+    def process_steps(self):
+        while True:
+            step = input("Type in UP/DOWN/LEFT/RIGHT #step number: ")
+
+            if step == "":
+                break
+
+            else:
+                step = step.split(" ")
+
+                if step[0] == "UP":
+                    self.y += int(step[1])
+                elif step[0] == "DOWN":
+                    self.y -= int(step[1])
+                elif step[0] == "LEFT":
+                    self.x -= int(step[1])
+                elif step[0] == "RIGHT":
+                    self.x += int(step[1])
+The process_steps method handles the input of steps from the user. 
+It continuously prompts the user to enter steps until they input an empty string. 
+Each step consists of a direction (UP, DOWN, LEFT, or RIGHT) and a step number. 
+The method updates the x and y coordinates based on the inputted steps.
+
+
+# Usage example:
+calculator = DistanceCalculator()
+calculator.process_steps()
+distance = calculator.calculate_distance()
+print("Distance:", distance)
+In this example, an instance of the DistanceCalculator class is created using calculator = DistanceCalculator().
+The process_steps method is called to input the steps and update the coordinates. 
+Then, the calculate_distance method is called to calculate the distance.
+Finally, the calculated distance is printed to the console.
